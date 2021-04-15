@@ -2,4 +2,4 @@
 simple yet powerful backup script
 
 Just run `backupTAR.sh` and type (paste) the directory of external device to start the backup to it.
-First run `chmod +x *.sh` to make the files executable.
+First execute `chmod +x *.sh` in the folder to make the files executable.
