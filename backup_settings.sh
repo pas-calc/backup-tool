@@ -41,7 +41,7 @@ echo "return state: $?"
 echo ""
 
 #~https://ostechnix.com/backup-and-restore-linux-desktop-system-settings-with-dconf/
-echo "Settings (dconf: Panel, and many more layout depending stuff)"
+echo "Settings (dconf: Panel, keyboard shortcuts, and many more layout depending stuff)"
 dconf dump / >  "$1/dconf_dump.txt"
 echo "return state: $?"
 echo ""
@@ -54,6 +54,7 @@ echo ""
 
 #~https://stackoverflow.com/a/35570937
 #~https://askubuntu.com/a/299280
+# alternatively, in Firefox do a manual export of bookmarks in JSON or HTML format
 echo "Firefox Bookmarks"
 ffbookmarks="$(find ~/.mozilla/firefox/*.default*/bookmarkbackups | sort | tail -n1)"
 if [ -n "$ffbookmarks" -a -f "$ffbookmarks" ]; then
