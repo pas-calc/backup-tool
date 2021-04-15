@@ -46,6 +46,12 @@ dconf dump / >  "$1/dconf_dump.txt"
 echo "return state: $?"
 echo ""
 
+#~https://askubuntu.com/questions/2389/generating-list-of-manually-installed-packages-and-querying-individual-packages
+echo "list installed program packages"
+comm -23 <(apt-mark showmanual | sort -u) <(gzip -dc /var/log/installer/initial-status.gz | sed -n 's/^Package: //p' | sort -u) >  "$1/installed_programs.txt"
+echo "return state: $?"
+echo ""
+
 #~https://stackoverflow.com/a/35570937
 #~https://askubuntu.com/a/299280
 echo "Firefox Bookmarks"
