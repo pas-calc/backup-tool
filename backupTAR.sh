@@ -26,6 +26,12 @@ mkdir -p "${targetpath2}"
 exec > >(tee "$targetpath2/backup_log.log") 2>&1
 echo -en "Date: " && date && echo ""
 
+# get free disk space on target device (before backup)
+echo "Free disk space:"
+df -h "$targetpath2"
+echo ""
+echo ""
+
 
 #~find . -maxdepth 1 -type d ! -path .  -not -path '*/\.*' -not -path "./Downloads" -not -path "./Schreibtisch" -not -path "./Öffentlich"  -print0 | while read -d $'\0' file
 find ~ -mindepth 1 -maxdepth 1 -type d ! -path .  -not -path '*/\.*'   -print0 | while read -d $'\0' file
@@ -59,6 +65,15 @@ echo ""
 echo "done."
 echo ""
 date
+
+echo ""
+echo ""
+# get free disk space on target device (after backup)
+echo "Free disk space:"
+df -h "$targetpath2"
+echo ""
+echo ""
+
 echo ""
 echo "---------------"
 echo ""
